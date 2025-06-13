@@ -1,6 +1,6 @@
-services:
-  - type: cron
-    name: notion-map-sync
+jobs:
+  - name: notion-map-sync
+    type: cron
     schedule: "*/30 * * * *"  # 每 30 分鐘執行一次
     envVars:
       - key: NOTION_TOKEN
@@ -9,4 +9,4 @@ services:
         sync: false
       - key: GOOGLE_API_KEY
         sync: false
-    run: python main.py
+    runCommand: python main.py
